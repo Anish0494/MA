@@ -55,7 +55,23 @@ ls()
 
 
 #array
+#dim = c(rows,col,matrix)
 (myarray = array(1:24,dim=c(4,3,2)))
-(myarray = array(1:24,dim=c(4,3,2)))
+(myarray = array(1:24,dim=c(4,3,2),dimnames = list(c('s1','s2','s3','s4'), 
+           c('sub1','sub2','sub3'), c('DEPT1','DEPT2'))))
 
-
+df$rollno
+df$gender = c('M','F','M')
+df
+str(df)
+#to change character to factor with 2 level
+df$gender=factor(df$gender)
+#run line 66
+df$grades = c('A','B','C')
+df
+#run line 66
+df$grades = factor(df$grades,ordered = T)
+df$grades
+#giving ordered as user want
+df$grades = factor(df$grades,ordered = T, labels = c('C','B','A'))
+df$grades
