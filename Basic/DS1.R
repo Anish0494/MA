@@ -75,3 +75,4 @@ df$grades
 #giving ordered as user want
 df$grades = factor(df$grades,ordered = T, labels = c('C','B','A'))
 df$grades
+
