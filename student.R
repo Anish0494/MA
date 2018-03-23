@@ -38,7 +38,19 @@ student %>% select(sname, btechfinal) %>% filter(btechfinal=='Pass')
 names(student)
 student$btechfinal
 
-col2=student %>% select(feepaid, cat) %>% filter(cat=='GEN')
+col2=student %>% select(feepaid, total) %>% filter(student$cat=='GEN')
 col2
-col3=student %>% select(feepaid, cat) %>% filter(cat=='OBC')
+cor(col2)
+cov(col2)
+mean(col2$total)
+mean(col2$feepaid)
+
+col3=student %>% select(feepaid, total) %>% filter(student$cat=='OBC')
 col3
+cor(col3)
+cov(col3)
+mean(col3$feepaid)
+mean(col3$total)
+
+#no of student which has marks greater in sem1 and less in sem2
+count(student[student$sem1>student$sem2,c('sname','sem1','sem2'),])

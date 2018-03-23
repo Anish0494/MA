@@ -11,5 +11,5 @@ df2$snames=as.character(df2$snames)
 str(df2)
 df2$course = factor(df2$course)
 str(df2)
-df2$grades=factor(df2$grades,ordered = T,labels = c('A','B','S'))
+df2$grades=factor(df2$grades,ordered = T,levels = c('A','B','S'))
 df2$grades
