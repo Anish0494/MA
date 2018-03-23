@@ -27,3 +27,29 @@ aggregate(sales$revenue, by=list(sales$custname),FUN=max)
 df1=aggregate(sales$revenue, by=list(sales$custname),FUN=sum)          
 df1
 
+df1=df1[order(df1$x,decreasing = T),]
+head(df1,5)
+
+
+#aggregration formula
+(df2=aggregate(revenue ~ custname+region,data=sales,FUN=sum))
+
+#list
+list1=tapply(sales$revenue, sales$custname, FUN=sum)
+list1
+#?aggregate.formula
+
+#dplyr
+library(dplyr)
+names(sales)
+
+sales %>% dplyr::filter(margin>10000)
+sales %>% group_by(custname) %>% summarize(Revenue = sum(revenue)) %>% arrange(
+  desc(Revenue))
+
+#To find most frequent customer
+sales %>% count(custname)
+sales %>% group_by(custname) %>% summarize(n=n()) %>% arrange(desc(n))
+
+sales %>% group_by(region) %>% count(custname)
+sales %>% group_by(custname,region) %>% count(custname) 
